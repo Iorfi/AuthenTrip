@@ -128,12 +128,8 @@ h1 {
   margin: 0px;
 
 }
-
-form {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.hidden {
+  display: none;
 }
 
 label {
@@ -144,4 +140,41 @@ label {
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 10px;
+}#miFormulario {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 0 auto;  /* centra el formulario en la página */
+  margin-top: 10%;
+  background-color: aliceblue;
+}
+
+#miFormulario label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#miFormulario select,
+#miFormulario textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  box-sizing: border-box;  /* para que el padding no aumente el tamaño total del elemento */
+}
+
+#miFormulario input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  #miFormulario {
+      width: 50%;
+  }
 }

@@ -15,11 +15,25 @@
     </div>
     </nav>
 
-    <form>
-      <h2>Comentarios</h2>
-      <label for="nombre">Ya viste qué opinan otras personas que ya visitaron esa actividad?</label>
-      <label for="nombre"> Chequealo aquí</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Escribí el nombre de tu Actividad"><br><br>
+    <form id="search">
+      Elegí una ciudad:
+      <input type="text" id="ciudad-input">
+      <input type="submit" value="Search!">
+  </form>
+  <div id="results">
+    El último comentario registrado sobre <strong id="word"></strong> es:
+    <blockquote id="definition"></blockquote>
+    <hr />
+    <form id="set">
+      <h2>
+        Modificá el comentario, contanos tu experiencia
+      </h2>
+      Ciudad <input id="set-word-input" type="text" readonly/>
+      <p> Definition:</p>
+      <textarea id="set-def-input"></textarea>
+      <input type="submit" value="Set">
+      <p id="status"></p>
     </form>
+  </div>
   </body>
 </html>
