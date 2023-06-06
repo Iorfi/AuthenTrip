@@ -2,6 +2,25 @@ import Dictionary from "./dictionary.js";
 import CiudadDefinition from "./ciudadDefinition.js";
 import CiudadSetDefinition from "./ciudadSetDefinition.js";
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('https://restcountries.com/v3/all')
+    .then(response => response.json())
+    .then(data => {
+      const countrySelect = document.getElementById('country-select');
+      data.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country.name.common;
+        option.text = country.name.common;
+        countrySelect.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.log('Error al obtener los países:', error);
+    });
+});
+
+
 class App {
   constructor() {
     this.dictionary = new Dictionary();
@@ -13,11 +32,13 @@ class App {
     const deleteForm = document.querySelector('#delete');
     this._onDelete = this._onDelete.bind(this);
     deleteForm.addEventListener('submit', this._onDelete);
-    
+
     const setForm = document.querySelector('#set');
     this._onSet = this._onSet.bind(this);
     setForm.addEventListener('submit', this._onSet);
+    
   }
+  
   _onSet(event) {
     event.preventDefault();
 
@@ -41,14 +62,25 @@ class App {
     event.preventDefault();
     const status = results.querySelector('#status');
     status.textContent = '';
-    console.log("Aca A") 
-    const input = document.querySelector('#ciudad-input');
+    const input = document.querySelector('#country-select');
     const word = input.value.trim();
-    console.log("Aca B") 
     this.dictionary.doLookup(word)  
-    console.log("llego") 
       .then(this._showResults);
   }
+
+  _onDelete(event) {
+    event.preventDefault();
+    const input = document.querySelector('#word-input-delete');
+    const word = input.value.trim();
+    this.dictionary.delete(word) 
+        .then (response => response.json())
+        .then (value => {
+          const deleteStatus = document.querySelector('#delete-status');
+            if (value === null) deleteStatus.textContent = "Word Not Found!";
+              else deleteStatus.textContent = "Word Deleted!";
+        });
+  }
+
 
   _showResults(result) {
     const resultsContainer = document.querySelector('#results');

@@ -2,9 +2,9 @@ class CiudadDefinition {
     constructor(resultsContainer, CiudadDefinition) {
         const wordDisplay = resultsContainer.querySelector('#word');
         const defDisplay = resultsContainer.querySelector('#definition');
-        wordDisplay.textContent = wordDefinition.word;
-        defDisplay.textContent = wordDefinition.definition;
+        wordDisplay.textContent = CiudadDefinition.word;
+        defDisplay.textContent = CiudadDefinition.definition;
     }
 }
 
-export default WordDefinition;
+export default CiudadDefinition;

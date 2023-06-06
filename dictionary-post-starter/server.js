@@ -11,10 +11,22 @@ class DictionaryBackendServer {
     app.get('/lookup/:word', this._doLookup);
     app.post('/save/', this._doSave);
     app.delete('/delete/', this._doDelete);
+    app.get("/countries", (req, res) => {
+      fetch("https://restcountries.com/v2/all")
+        .then(response => response.json())
+        .then(data => {
+          res.json(data);
+        })
+        .catch(error => {
+          console.log(error);
+          res.status(500).json({ error: "Ocurrió un error al obtener los países" });
+        });
+    });
 
     // Start server
     app.listen(3000, () => console.log('Listening on port 3000'));    
   }
+
 
   async _doLookup(req, res) {
     const routeParams = req.params;
