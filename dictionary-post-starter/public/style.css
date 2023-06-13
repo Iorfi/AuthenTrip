@@ -167,6 +167,29 @@ label {
   width: 100%;
 }
 
+.logo{
+  height: 50% ;
+}
+.question {
+  margin-bottom: 2em;
+}
+
+.question h2 {
+  font-size: 1.2em;
+}
+
+.options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.options li {
+  margin-bottom: 0.5em;
+}
+
+.options li button {
+  padding: 0.5em;
+}
 @media screen and (min-width: 600px) {
   #miFormulario {
       width: 50%;

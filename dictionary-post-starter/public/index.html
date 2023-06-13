@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Mi Proyecto</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
   </head>
   <body>
     <nav class="navbar">
@@ -11,16 +12,16 @@
         <img src="/logo.authentrip.png" alt="" class="logo">
       </a>
       <div>
-      <a href="#">Inicio</a>  <!-- API de Paises, que trae Fotos del país, temperatura, hora actual-->
-      <a href="buscarExperiencia.html">Buscar experiencias</a>  <!-- API de TripAvisor, que trae eventos de la ciudad elegida-->
+      <a href="/">Inicio</a>  <!-- API de Paises, que trae Fotos del país, temperatura, hora actual-->
       <a href="comentarios.html">Comentarios</a> <!-- API de TripAvisor, que trae los comentarios del evento elegido-->
+      <a href="login.html">Login</a>  
     </div>
     </nav>
 
     <form>
       <h2>Inicio</h2>
-      <label for="email">¿Qué país te interesa buscar?</label>
-      <input type="email" id="email" name="email"><br><br>
+      <button type="submit" id="start-button">Comenzar juego</button>
+      <div id="trivia-questions"></div>
     </form>
   </body>
 </html>

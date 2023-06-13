@@ -1,7 +1,6 @@
-import Dictionary from "./dictionary.js";
+import Fetch from "./fetch.js";
 import CiudadDefinition from "./ciudadDefinition.js";
 import CiudadSetDefinition from "./ciudadSetDefinition.js";
-
 
 document.addEventListener('DOMContentLoaded', function() {
   fetch('https://restcountries.com/v3/all')
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 class App {
   constructor() {
-    this.dictionary = new Dictionary();
+    this.fetch = new Fetch();
 
     const searchForm = document.querySelector('#search');
     this._onSearch = this._onSearch.bind(this);
@@ -49,7 +48,7 @@ class App {
     const status = results.querySelector('#status');
     status.textContent = '';
 
-    this.dictionary.save(postBody)
+    this.fetch.save(postBody)
       .then(result => {
         // Update definition
         new CiudadDefinition(resultsContainer, postBody);
@@ -64,7 +63,7 @@ class App {
     status.textContent = '';
     const input = document.querySelector('#country-select');
     const word = input.value.trim();
-    this.dictionary.doLookup(word)  
+    this.fetch.doLookup(word)  
       .then(this._showResults);
   }
 
@@ -72,7 +71,7 @@ class App {
     event.preventDefault();
     const input = document.querySelector('#word-input-delete');
     const word = input.value.trim();
-    this.dictionary.delete(word) 
+    this.fetch.delete(word) 
         .then (response => response.json())
         .then (value => {
           const deleteStatus = document.querySelector('#delete-status');
@@ -97,6 +96,8 @@ class App {
     resultsContainer.classList.remove('hidden');
   }
 }
-
 // Init app
 const app = new App();
+
+
+

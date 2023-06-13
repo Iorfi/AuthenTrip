@@ -1,4 +1,4 @@
-class Dictionary {
+class Fetch {
 
     doLookup(word) {
       return fetch('/lookup/' + word)
@@ -35,4 +35,4 @@ class Dictionary {
   
   }
 
-  export default Dictionary;
+  export default Fetch;
