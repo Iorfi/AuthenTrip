@@ -1,5 +1,7 @@
 import express from 'express';
+import passport from 'passport';
 import db from './db.js';
+import Authorization from "./auth.js"
 
 ////////////////////////////////////////////////////////////////////////////////
 class DictionaryBackendServer {
@@ -7,10 +9,14 @@ class DictionaryBackendServer {
     const app = express();
     app.use(express.json());
     app.use(express.static('public'));
+    app.use(express.urlencoded({ extended: false }));
+    const authorization = new Authorization(app);
 
     app.get('/lookup/:word', this._doLookup);
     app.post('/save/', this._doSave);
     app.delete('/delete/', this._doDelete);
+    app.get('/login/', this._login);
+    app.get('/', authorization.checkAuthenticated, this._goHome);
     app.get("/countries", (req, res) => {
       fetch("https://restcountries.com/v2/all")
         .then(response => response.json())
@@ -23,10 +29,31 @@ class DictionaryBackendServer {
         });
     });
 
+    app.get('/auth/google/', passport.authenticate('google', {
+      scope: ['email', 'profile']
+    }));
+
+  app.get('/auth/google/callback', passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  }));
+
+   app.post("/logout", (req,res) => {
+    req.logOut(err=>console.log(err));
+    res.redirect("/login");
+ })
+
     // Start server
     app.listen(3000, () => console.log('Listening on port 3000'));    
   }
 
+  async _login(req, res) {
+    res.sendFile(path.join(__dirname, "public/login.html"));
+  }
+
+  async _goHome(req, res) {
+    res.sendFile(path.join(__dirname, "public/home.html"));
+  }
 
   async _doLookup(req, res) {
     const routeParams = req.params;
