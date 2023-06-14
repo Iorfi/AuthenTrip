@@ -52,7 +52,7 @@ class DictionaryBackendServer {
   }
 
   async _goHome(req, res) {
-    res.sendFile(path.join(__dirname, "public/home.html"));
+    res.sendFile(path.join(__dirname, "public/comentarios.html"));
   }
 
   async _doLookup(req, res) {

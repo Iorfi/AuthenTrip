@@ -16,7 +16,7 @@ body {
   
  text-align: center;
  color: #0a3863;
- background-image:  linear-gradient(to right ,#c1e2ff, #ffffff)
+ background-image:  linear-gradient(to right ,#7dc1fc, #ffffff)
 }
 
 
@@ -76,7 +76,10 @@ nav {
 
 .nav-menu li a.active, .nav-menu li a:hover {
   color: #2e72b3;
-  transition: .3s;
+  transition: .8s;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 5px 10px;
 }
 
 #check:checked ~ .nav-menu{
@@ -277,47 +280,8 @@ input[type=submit]:hover {
 }
 
 
-@keyframes carrusel {
-  0% {
-    background-image: url(imagen1.jpg);
-  }
-  33% {
-    background-image: url(imagen2.jpg);
-  }
-  66% {
-    background-image: url(imagen3.jpg);
-  }
-  100% {
-    background-image: url(imagen1.jpg);
-  }
-}
-/*
-nav {
-  background-color: #444;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
 
-li {
-  margin: 0 10px;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-}
-*/
 
 
 .hidden {
@@ -331,6 +295,7 @@ label {
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 10px;
+
 }#miFormulario {
   width: 100%;
   max-width: 400px;
@@ -356,7 +321,7 @@ label {
 }
 
 #miFormulario input[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #2e72b3;
   color: white;
   padding: 15px 20px;
   border: none;
@@ -364,10 +329,7 @@ label {
   width: 100%;
 }
 
-/*.logo{
-  height: 50% ;
-}
-*/
+
 .question {
   margin-bottom: 2em;
 }
