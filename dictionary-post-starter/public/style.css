@@ -1,41 +1,244 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400&family=Montserrat:wght@300&family=Silkscreen&display=swap');
+
 /* Estilos generales */
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
+  
+ text-align: center;
+ color: #0a3863;
+ background-image:  linear-gradient(to right ,#c1e2ff, #ffffff)
+}
+
+
+header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(fondo5.jpg);
+  
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+nav {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  width: 170px;
+  margin-left: 20px ;
+}
+
+.bar-btn {
+  font-size: 25px;
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.nav-menu{
+  position: fixed;
+  width: 100%;
+  height: 0vh;
+  top: 100px;
+  background: rgba(16, 17, 20, 0.95);
+  text-align: center;
+  transition: all .5%;
+}
+
+.nav-menu li{
+  display: none;
+  line-height: 30px;
+  margin: 50px 0;
+  transition: all .5%;
+}
+
+.nav-menu li a{
+  color: #fff;
   font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.nav-menu li a.active, .nav-menu li a:hover {
   color: #2e72b3;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: #DDE6FF; /* Color de fondo de la página */
+  transition: .3s;
+}
+
+#check:checked ~ .nav-menu{
+  height: 100vh;
+}
+
+#check:checked ~ .nav-menu li{
+  display: block;
+}
+
+/*BANNER TEXT*/
+
+.banner-text{
+
+  margin-top: 150px;
+  text-align: center;
+  color: #fff;
+}
+
+.banner-text h1{
+  font-size: 50px;
+  margin-bottom: 30px;
+  text-align: centers;
+}
+
+.banner-text span{
+  color: #0a3863;
+  font-weight:1000;
+}
+
+.banner-text h2{
+  font-size: 20px;
+  font-weight: 600;
+text-align: center;
+}
+
+.button1{
+  margin-right: 40px;
+  padding: 10px 30px;
+  background-color: #2e72b3;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.button1:hover{
+  background-color: #fff;
+  color: #2e72b3;
+  transition: 5s;
+
+}
+
+.button2{
+  margin-right: 40px;
+  padding: 10px 30px;
+  background-color: #fff;
+  color: #2e72b3;
+  border-radius: 5px;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (min-width: 768px) {
+  .logo{
+    margin-left: 50px;
+  }
+
+  nav{
+    height: 100px;
+  }
+
+  .bar-btn{
+    display: none;
+  }
+
+  .nav-menu{
+    position: relative;
+    height: 100px;
+    top: 0;
+    transition: none;
+    background: none;
+    text-align: right;
+    margin-right: 50px;
+  }
+  .nav-menu li{
+    display: inline-block;
+    line-height: 100px;
+    margin: 0 20px;
+    transition: none;
+  }
+
+  .nav-menu li a {
+    font-size: 12px;
+
+  }
+
+  .banner-text h1{
+    font-size: 70px;
+    margin-bottom: 30px;
+  }
+
+  .banner-text h2{
+    font-size: 20px;
+    
+  }
+}
+
+.button2:hover{
+  background-color:#2e72b3;
+  color:#fff;
+  transition: 5s;
+
+}
+
+.juego {
+  width: 100%;
+  height: 80vh;
+  
+  align-items: center;
+}
+
+.juego-content{
+width: 100%;
+padding: 50px;
+color: #0a3863;
+align-items: center;
+}
+
+.juego-content h1{
+  font-size: 7vmin;
+  margin: 20px;
+}
+
+#button-juego{
+  padding: 8px 15px;
+  color: #fff;
+  border-radius: 30px;
+background-color: #0a3863;
+}
+
+.form-juego{
+  padding: 10px 15px;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-/* Estilos para la navbar */
-.navbar {
-  background-color: #2e72b3;
   overflow: hidden;
 }
 
-.navbar a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 20px;
+
+
+@keyframes planeAnimation {
+  0% {
+      transform: translateX(0) translateY(0);
+  }
+  100% {
+      transform: translateX(100vw) translateY(50vh);
+  }
 }
 
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
+/* Estilos para la navbar */
 /* Estilos para el título */
 h1 {
   font-size: 48px;
@@ -88,7 +291,7 @@ input[type=submit]:hover {
     background-image: url(imagen1.jpg);
   }
 }
-
+/*
 nav {
   background-color: #444;
   padding: 10px;
@@ -114,14 +317,9 @@ a {
   text-decoration: none;
   font-size: 18px;
 }
+*/
 
-h1 {
-  text-align: right;
-  color: #fff;
-  font-size: 60px;
-  margin: 0px;
 
-}
 .hidden {
   display: none;
 }
@@ -130,7 +328,6 @@ label {
   color: white;
   font-size: 30px;
   font-weight: 600;
-  background-color:  #2e72b3;
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 10px;
@@ -167,9 +364,10 @@ label {
   width: 100%;
 }
 
-.logo{
+/*.logo{
   height: 50% ;
 }
+*/
 .question {
   margin-bottom: 2em;
 }

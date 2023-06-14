@@ -5,23 +5,52 @@
     <title>Mi Proyecto</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="app.js"></script>
+    <script src="https://kit.fontawesome.com/a6d1a3acae.js" crossorigin="anonymous"></script>
   </head>
-  <body>
-    <nav class="navbar">
-      <a href="#" class="enlace">
-        <img src="/logo.authentrip.png" alt="" class="logo">
-      </a>
-      <div>
-      <a href="/">Inicio</a>  <!-- API de Paises, que trae Fotos del país, temperatura, hora actual-->
-      <a href="comentarios.html">Comentarios</a> <!-- API de TripAvisor, que trae los comentarios del evento elegido-->
-      <a href="login.html">Login</a>  
-    </div>
-    </nav>
 
+  <body>
+    <header class="">
+      <nav>
+        <div>
+          <img src="logo.authentrip.png" alt="" class="logo">
+        </div>
+        <input type="checkbox" id="check">
+        <label for="check" class="bar-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <ul class="nav-menu">
+          <li><a class="active" href="index.html">Inicio</a> </li>
+          <li><a href="comentarios.html"> Comentario </a> </li>
+          <li><a href="login.html">Sesión</a> </li>
+        </ul>
+      </nav>
+      <div class="banner-text">
+        <h2>CONOCE EL MUNDO</h2>
+        <h1 id="titulo1">BLOG DE <span>TURISMO</span></h1>
+        <div>
+          <a href="login.html" class="button1">INICIAR SESION</a>
+          <a href="comentarios.html" class="button2">COMENTARIOS</a>
+        </div>
+      </div>
+    </header>
+
+
+<section class="juego">
+  <div class="juego-content">
+  <div class="titulo-de-juego">
+    <h1>JUEGO </h1>
+    <h4>¡Animate a jugar un juego y conocer mas de Geografía del mundo!</h4>
+  </div>
+  <div class="form-juego">
     <form id="start-button">
-      <h2>Inicio</h2>
-      <button type="submit">Comenzar juego</button>
+      <button id="button-juego" type="submit">Comenzar juego</button>
       <div id="trivia-questions"></div>
     </form>
+  </div>
+  </div>
+  </section>  
+  
+
+    
   </body>
 </html>
